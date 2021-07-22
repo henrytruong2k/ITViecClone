@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 const JobItem = (props: { item: Job }) => {
   const { item } = props;
-  const list = useSelector((state: RootState) => state.favorite.favoriteList);
-  const IDs = list.map((item) => item.id);
-  const clicked = IDs.includes(item.id);
+  const list = useSelector((state: RootState) => state?.favorite?.favoriteList);
+  const IDs = list?.map((item) => item.id);
+  const clicked = IDs?.includes(item.id);
   const [checkedSave, setCheckedSave] = React.useState(clicked);
 
   const classes = useStyles();

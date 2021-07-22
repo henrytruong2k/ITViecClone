@@ -21,7 +21,7 @@ const Home = () => {
 
         const { data } = await jobAPI.getAll(params);
 
-        setJobList(data.jobs);
+        setJobList(data?.jobs);
       } catch (error) {
         console.log("Failed to fetch jobs: ", error);
       }
@@ -32,7 +32,7 @@ const Home = () => {
     (async () => {
       try {
         const { data } = await jobAPI.getCategories();
-        setCategories(data.jobs);
+        setCategories(data?.jobs);
       } catch (error) {
         console.log("Failed to fetch categories: ", error);
       }

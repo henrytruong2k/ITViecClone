@@ -13,7 +13,7 @@ const JobList = (props: { list: Job[]; loading: boolean }) => {
   //pagination
   const indexOfLastPost = currentPage * jobsPerPage;
   const indexOfFirstPost = indexOfLastPost - jobsPerPage;
-  const currentPosts = list.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = list?.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   return (
@@ -30,7 +30,7 @@ const JobList = (props: { list: Job[]; loading: boolean }) => {
       <Pagination
         currentPage={currentPage}
         jobsPerPage={jobsPerPage}
-        totalJobs={list.length}
+        totalJobs={list?.length}
         paginate={paginate}
       />
     </Col>

@@ -98,7 +98,9 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const posts = useSelector((state: RootState) => state.favorite.favoriteList);
+  const posts = useSelector(
+    (state: RootState) => state?.favorite?.favoriteList
+  );
 
   const handleRemovePost = (id: number) => {
     const action = removeFavoriteList(id);
@@ -117,9 +119,9 @@ const Header = () => {
       onClose={handleMenuClose}
     >
       <Box display="flex" justifyContent="center" ml={2} mr={2}>
-        <h4>Your favorite posts ({posts.length})</h4>
+        <h4>Your favorite posts ({posts?.length})</h4>
       </Box>
-      {posts.map((post) => {
+      {posts?.map((post) => {
         return (
           <MenuItem key={post.id} onClick={handleMenuClose}>
             <Box display="flex" alignItems="center">
@@ -190,11 +192,11 @@ const Header = () => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton
-              aria-label={`show ${posts.length} new posts`}
+              aria-label={`show ${posts?.length} new posts`}
               color="inherit"
               onClick={handleMenuOpen}
             >
-              <Badge badgeContent={posts.length} color="secondary">
+              <Badge badgeContent={posts?.length} color="secondary">
                 <FavoriteBorder />
               </Badge>
             </IconButton>
